@@ -1,1 +1,1 @@
-# Separador de Imagens, feito aplicação de alguns filtros.
+Separador de Imagens, feito com aplicação de alguns filtros, extração de dados por modelagem de pixel, utilizando algumas tecnicas de segmentação de imagens e modelos estatisticos.
