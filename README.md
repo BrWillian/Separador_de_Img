@@ -1,0 +1,1 @@
+# Separador de Imagens, feito aplicação de alguns filtros.
