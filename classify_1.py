@@ -1,29 +1,31 @@
-from os import walk,path,getcwd
-from cv2 import imread,cvtColor,threshold
-from shutil import move
-from numpy import mean,median,sum
+import os
+import shutil
+import cv2
+import numpy as np
 
 index = [96,160,187]
 
 def func_filter_dir(directory):
     try:
-        for (dirpath, dirnames, filenames) in walk(directory):
+        for (dirpath, dirnames, filenames) in os.walk(directory):
             for f in filenames:
-                f_path = path.join(dirpath, f)
+                f_path = os.path.join(dirpath, f)
                 variavel = filter(f_path)
                 if variavel < index[0]:
-                    move(f_path, directory+'/Escuras/')
+                    shutil.move(f_path, directory+'/Escuras/')
                 elif variavel >= index[1] and variavel <= index[2]:
-                    move(f_path, directory+'/Claras/')
+                    shutil.move(f_path, directory+'/Claras/')
     except:
         return 'Imagens ja processadas!'
 
 
 def filter(directory):
-    img = imread(directory)
-    img_gray = cvtColor(img, cv2.COLOR_RGB2GRAY)
-    equ_img = equalizeHist(img_gray)
-    img_bin = threshold(img_gray, 40, 255, cv2.THRESH_BINARY)[1]
-    result = sum(mean(img_bin)+mean(equ_img)) / 2.0
+    img = cv2.imread(directory)
+    img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    equ_img = cv2.equalizeHist(img_gray)
+    img_bin = cv2.threshold(img_gray, 40, 255, cv2.THRESH_BINARY)[1]
+    result = np.sum(np.mean(img_bin)+np.mean(equ_img)) / 2.0
 
     return result
+
+print(filter('/media/Backup/python/Processamento/ao/Claras/ete_208.jpg'))
