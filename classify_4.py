@@ -1,6 +1,6 @@
-import os
-import numpy as np
 import cv2
+import numpy as np
+import os
 import shutil
 
 def func_filter_dir(directory):
@@ -9,18 +9,28 @@ def func_filter_dir(directory):
             for f in filenames:
                 f_path = os.path.join(dirpath, f)
                 variable = filter(f_path)
-                if variable > 1:
+                if variable:
+                    shutil.move(f_path, directory+'/Escuras/')
+                else:
                     shutil.move(f_path, directory+'/Claras/')
     except NameError as erro:
         print(erro)
 
+
 def filter(directory):
+
     img = cv2.imread(directory)
-    img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    img_bin = cv2.threshold(img_gray, 100, 255, cv2.THRESH_BINARY)[1]
 
-    result = np.median(img_bin)
+    b,g,r = cv2.split(img)
 
-    return result
+    b = np.sum(b)
+    g = np.sum(g)
+    r = np.sum(r)
+
+    if b == g == r:
+        return True
+    else:
+        return False
+
 if __name__ == "__main__":
     func_filter_dir('C:/Users/willianmoreira/Desktop/ete/')

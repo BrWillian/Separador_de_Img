@@ -5,14 +5,14 @@ import numpy as np
 
 def func_filter_dir(directory):
     try:
-        for (dirpath, dirnames, filenames) in os.walk(directory):
+        for (dirpath, dirnames, filenames) in os.walk(directory + '/cache'):
             for f in filenames:
                 f_path = os.path.join(dirpath, f)
                 variable = filter(f_path)
                 if variable < 1:
                     shutil.move(f_path, directory+'/Escuras/')
-    except:
-        return "Imagens já processadas!"
+    except NameError as erro:
+        print(erro)
 
 
 def filter(directory):
@@ -24,5 +24,6 @@ def filter(directory):
 
     return result
 
-
-func_filter_dir('/media/Backup/python/Processamento/ao/')
+#print(filter('C:/Users/willianmoreira/Desktop/ao/cache/ete_591.jpg'))
+if __name__ == "__main__":
+    func_filter_dir('C:/Users/willianmoreira/Desktop/ete/')
