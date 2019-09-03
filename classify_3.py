@@ -17,10 +17,10 @@ def func_filter_dir(directory):
 def filter(directory):
     img = cv2.imread(directory)
     img_gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    img_bin = cv2.threshold(img_gray, 100, 255, cv2.THRESH_BINARY)[1]
+    img_bin = cv2.threshold(img_gray, 75, 255, cv2.THRESH_BINARY)[1]
 
     result = np.median(img_bin)
 
     return result
 if __name__ == "__main__":
-    func_filter_dir('C:/Users/willianmoreira/Desktop/ete/')
+    func_filter_dir('C:/Users/willianmoreira/Desktop/teste/van/')

@@ -31,5 +31,5 @@ def save_data(directory, dir, type, size, name):
         archive.write(f'INSERT INTO images VALUES ("{dir}", "{name}","{type}","{size}Kb")\n')
     finally:
         archive.close()
-
-list_dir('C:/Users/willianmoreira/Desktop/teste')
+if __name__ == '__main__':
+    list_dir('C:/Users/willianmoreira/Desktop/teste/van/')

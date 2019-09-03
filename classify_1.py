@@ -32,4 +32,4 @@ def filter(directory):
     return result
 
 if __name__ == "__main__":
-    func_filter_dir('C:/Users/willianmoreira/Desktop/ete/')
+    func_filter_dir('C:/Users/willianmoreira/Desktop/teste/van/')

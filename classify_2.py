@@ -26,4 +26,4 @@ def filter(directory):
 
 #print(filter('C:/Users/willianmoreira/Desktop/ao/cache/ete_591.jpg'))
 if __name__ == "__main__":
-    func_filter_dir('C:/Users/willianmoreira/Desktop/ete/')
+    func_filter_dir('C:/Users/willianmoreira/Desktop/teste/van/')
