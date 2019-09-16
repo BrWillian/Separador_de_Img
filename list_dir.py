@@ -10,15 +10,15 @@ def list_dir(directory):
             f_size = round(os.path.getsize(f_path) / 1024,1)
             f_prop = os.path.splitext(f)
             try:
-                os.makedirs(dirpath+'/Claras', 777)
+                os.makedirs(dirpath+'/Claras')
             except:
                 pass
             try:
-                os.makedirs(dirpath+'/Escuras', 777)
+                os.makedirs(dirpath+'/Escuras')
             except:
                 pass
             try:
-                os.makedirs(dirpath+'/cache/', 777)
+                os.makedirs(dirpath+'/cache/')
             except:
                 pass
             shutil.move(f_path, dirpath+'/cache')

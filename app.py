@@ -12,3 +12,5 @@ classify_1.func_filter_dir(directory)
 classify_2.func_filter_dir(directory)
 classify_3.func_filter_dir(directory)
 classify_4.func_filter_dir(directory)
+
+os.removedirs(directory+'/cache/')
